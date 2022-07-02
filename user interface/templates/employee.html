@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}Employee{% endblock %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <section class="contact-clean">
+                    <form method="post" class="shadow-lg">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if "empty" in message or "can not" in message %}
+                                <div class="alert alert-danger" role="alert">{{ message }}</div>
+                                {% else %}
+                                <div class="alert alert-success" role="alert">Successful!!</div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <h2 class="text-center">Employee Information</h2>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="employeeID" placeholder="Employee ID" /><br>
+                            <input class="form-control" type="text" name="positionID" placeholder="Position ID" /><br>
+                            <input class="form-control" type="text" name="firstName" placeholder="First Name" /><br>
+                            <input class="form-control" type="text" name="lastName" placeholder="Last Name" /><br>
+                            <input class="form-control" type="text" name="birthDate" placeholder="Birth Date (DD-MM-YYYY)" /><br>
+                            <input class="form-control" type="text" name="address" placeholder="Address" /><br>
+                            <input class="form-control" type="text" name="salary" placeholder="Salary" />
+                        </div>
+                        <div class="d-grid gap-lg-5 d-md-flex">
+                            <button class="btn btn-primary" type="submit" name="button" value="add">Add Employee</button>
+                            <button class="btn btn-danger" type="submit" name="button" value="delete">Delete Employee</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-info">
+                            <tr>
+                                <th>{{ column_data[0] }}</th>
+                                <th>{{ column_data[1] }}</th>
+                                <th>{{ column_data[2] }}</th>
+                                <th>{{ column_data[3] }}</th>
+                                <th>{{ column_data[4] }}</th>
+                                <th>{{ column_data[5] }}</th>
+                                <th>{{ column_data[6] }}</th>
+                                <th>{{ column_data[7] }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in data %}
+                            <tr>
+                                <td>{{ item[0] }}</td>
+                                <td>{{ item[1] }}</td>
+                                <td>{{ item[2] }}</td>
+                                <td>{{ item[3] }}</td>
+                                <td>{{ item[4] }}</td>
+                                <td>{{ item[5] }}</td>
+                                <td>{{ item[6] }}</td>
+                                <td>{{ item[7] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
