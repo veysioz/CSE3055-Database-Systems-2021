@@ -1,6 +1,6 @@
 # Restaurant Management System
 
-<b>Marmara University / CSE3055 - Database Systems (2021)</b>
+<b>Marmara University / Computer Science & Engineering / CSE3055 - Database Systems (2021)</b>
 
 <b>Project</b>
 
